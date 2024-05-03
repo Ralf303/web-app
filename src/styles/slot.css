@@ -1,0 +1,294 @@
+#balance {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #311B92;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+
+.main {
+    border-radius: 5px;
+    background-color: #311B92;
+    margin-top: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 0 auto;
+    max-width: 350px;
+}
+
+#status {
+    margin-bottom: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #536DFE;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#Slots {
+    border-radius: 10px;
+    background-color: #EDE7F6;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
+
+#Gira {
+    margin-top: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #AB47BC;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+#Gira:hover {
+    background-color: #BA68C8;
+}
+
+#options {
+    margin-top: 10px;
+    padding-top: 5px;
+    border-radius: 5px;
+    background-color: #B71C1C;
+    color: #FFFFFF;
+    text-align: center;
+    box-shadow: 0px 0px 10px 2px rgba(239, 83, 80, 0.7);
+}
+
+.option {
+    padding-left: 5px;
+    background-color: #B71C1C;
+}
+
+#slot1,
+#slot2,
+#slot3 {
+    display: inline-block;
+    background-color: #ffffff;
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-size: 100px;
+    width: 100px;
+    height: 100px;
+    box-shadow: 0px 0px 10px 2px rgba(0, 188, 212, 0.9);
+}
+
+
+
+.bet-button {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FF4081;
+    color: #FFFFFF;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.bet-button:hover {
+    background-color: #F50057;
+}
+
+
+table {
+    width: 70%;
+    background-color: rgb(83, 109, 254);
+    border-collapse: collapse;
+    /* Добавлено для отображения границ ячеек */
+}
+
+tr {
+    text-align: left;
+    background-color: rgb(83, 109, 254);
+}
+
+td {
+    padding: 5px;
+    background-color: rgb(83, 109, 254);
+    border: 1px solid #888;
+}
+
+p.rules {
+    color: rgb(66, 162, 221);
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+
+th.rules {
+    background-color: rgb(83, 109, 254);
+    border: 1px solid #888;
+}
+
+tbody.rules {
+    background-color: rgb(83, 109, 254);
+}
+
+h2.rules {
+    background-color: rgb(83, 109, 254);
+}
+
+td.combination img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-color: rgb(83, 109, 254);
+}
+
+div.combination {
+    background-color: rgb(83, 109, 254);
+    display: flex;
+    flex-direction: row;
+}
+
+
+.rules-modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(83, 109, 254);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.rules-modal-content {
+    background-color: #536DFE;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    background-color: rgb(83, 109, 254);
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.a1 {
+    background-image: url("../res/tiles/seven.png");
+    filter: brightness(120%);
+}
+
+.a2 {
+    background-image: url("../res/tiles/cherries.png");
+    filter: brightness(120%);
+}
+
+.a3 {
+    background-image: url("../res/tiles/club.png");
+    filter: brightness(120%);
+}
+
+.a4 {
+    background-image: url("../res/tiles/diamond.png");
+    filter: brightness(120%);
+}
+
+.a5 {
+    background-image: url("../res/tiles/heart.png");
+    filter: brightness(120%);
+}
+
+.a6 {
+    background-image: url("../res/tiles/spade.png");
+    filter: brightness(120%);
+}
+
+.a7 {
+    background-image: url("../res/tiles/joker.png");
+    filter: brightness(120%);
+}
+
+@media only screen and (max-width: 320px) {
+    #balance, #status, #Gira, #combinations {
+        font-size: 16px;
+        padding: 5px;
+    }
+
+    .main {
+        max-width: 280px;
+        padding: 5px;
+    }
+
+    #Slots {
+        padding: 5px;
+    }
+
+    #Gira {
+        padding: 10px;
+    }
+
+    #Gira:hover {
+        background-color: #BA68C8;
+    }
+
+    #options {
+        padding-top: 3px;
+    }
+
+    .option {
+        padding-left: 3px;
+    }
+
+    #slot1,
+    #slot2,
+    #slot3 {
+        margin-top: 3px;
+        margin-left: 3px;
+        margin-right: 3px;
+        width: 80px;
+        height: 80px;
+    }
+
+    .bet-button {
+        margin: 5px;
+        padding: 3px 7px;
+        font-size: 14px;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    td {
+        padding: 3px;
+    }
+
+    td.combination img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .a1, .a2, .a3, .a4, .a5, .a6, .a7 {
+        background-size: 60px;
+    }
+}

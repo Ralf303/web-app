@@ -1,0 +1,14 @@
+.home-h2 {
+    padding-bottom: 20px;
+    text-align: center;
+}
+
+.home-ul {
+    padding-top: 20px;
+    list-style: none;
+    text-align: center;
+}
+
+.home-li {
+    margin-bottom: 10px;
+}

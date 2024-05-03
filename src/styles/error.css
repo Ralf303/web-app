@@ -1,0 +1,19 @@
+.error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.error-header {
+    font-size: 50px;
+    text-align: center;
+    color: #ff0000;
+}
+
+.error-text {
+    font-size: 24px;
+    text-align: center;
+    margin-top: 10px;
+}

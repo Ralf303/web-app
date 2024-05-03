@@ -1,0 +1,29 @@
+.navbar-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+}
+
+.navbar-list {
+    display: flex;
+    width: 100%;
+}
+
+.navbar-item {
+    flex: 1;
+}
+
+.navbar-link {
+    display: block;
+    padding: 15% 1px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.active {
+    background-color: #4d4dff;
+}
