@@ -3,7 +3,9 @@ import axios from "axios";
 class UserApi {
   async get(id: string) {
     try {
-      const response = await axios.get(`http://localhost:8080/user/get/${id}`);
+      const response = await axios.get(
+        `https://mefadmin.ru:8080/user/get/${id}`
+      );
       return response.data;
     } catch (error) {
       console.log(error);
@@ -13,7 +15,7 @@ class UserApi {
   async updateBalance(id: string, balance: number) {
     try {
       const response = await axios.put(
-        `http://localhost:8080/user/updateBalance/${id}`,
+        `https://mefadmin.ru:8080/user/updateBalance/${id}`,
         {
           balance: balance,
         }
@@ -27,7 +29,7 @@ class UserApi {
   async updateGems(id: string, gems: number) {
     try {
       const response = await axios.put(
-        `http://localhost:8080/user/updateGems/${id}`,
+        `https://mefadmin.ru:8080/user/updateGems/${id}`,
         {
           gems: gems,
         }
@@ -41,7 +43,7 @@ class UserApi {
   async updateKeys(id: string, keys: number) {
     try {
       const response = await axios.put(
-        `http://localhost:8080/user/updateKeys/${id}`,
+        `https://mefadmin.ru:8080/user/updateKeys/${id}`,
         {
           keys: keys,
         }
