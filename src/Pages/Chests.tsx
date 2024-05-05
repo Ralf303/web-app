@@ -17,7 +17,7 @@ const prizes = ["мефа", "гемов", "Ничего"];
 const ChestPage: React.FC = () => {
   const tg = useTelegram();
   const { id } = tg.user;
-  const [keys, setKeys] = useState<number>(2);
+  const [keys, setKeys] = useState<number>(0);
   const [selectedChest, setSelectedChest] = useState<number | null>(null);
   const [selectedPrize, setSelectedPrize] = useState<string | null>(null);
   const [chestSrc, setChestSrc] = useState<string[]>([Chest1, Chest1, Chest1]);

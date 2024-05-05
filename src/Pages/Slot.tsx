@@ -85,9 +85,9 @@ const SlotPage: React.FC = () => {
     let i3 = 0;
 
     setStatus("ВРАЩАЕМ...");
-    const slot1 = setInterval(spin1, 30);
-    const slot2 = setInterval(spin2, 30);
-    const slot3 = setInterval(spin3, 30);
+    const slot1 = setInterval(spin1, 40);
+    const slot2 = setInterval(spin2, 40);
+    const slot3 = setInterval(spin3, 40);
     function spin1() {
       i1++;
       if (i1 >= numeberSlot1) {
