@@ -43,7 +43,7 @@ const SlotPage: React.FC = () => {
   const [audio, setAudio] = useState(true);
   const [status, setStatus] = useState("УДАЧИ!");
   const [balance, setBalance] = useState(0);
-  const [bet, setBet] = useState(5);
+  const [bet, setBet] = useState(100);
   const [showRules, setShowRules] = useState(false);
 
   useEffect(() => {
@@ -72,8 +72,10 @@ const SlotPage: React.FC = () => {
       setStatus("НЕДОСТАТОЧНО ДЕНЕГ!");
       return null;
     }
+    console.log("БАЛАНС ДО", balance);
 
     setBalance(balance - bet);
+
     setDoing(true);
     let numChanges = randomInt(1, 4) * 7;
     let numeberSlot1 = numChanges + randomInt(1, 7);
@@ -156,59 +158,77 @@ const SlotPage: React.FC = () => {
     switch (true) {
       case slot1 === "a2" && slot2 === "a2" && slot3 === "a2":
         result = "х10 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 10));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 10));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 10)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 10));
         if (audio) win.play();
         break;
 
       case slot1 === "a3" && slot2 === "a3" && slot3 === "a3":
         result = "х15 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 15));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 15));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 15)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 15));
         if (audio) win.play();
         break;
 
       case slot1 === "a4" && slot2 === "a4" && slot3 === "a4":
         result = "х20 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 20));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 20));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 20)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 20));
         if (audio) win.play();
         break;
 
       case slot1 === "a5" && slot2 === "a5" && slot3 === "a5":
         result = "х30 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 30));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 30));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 30)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 30));
         if (audio) win.play();
         break;
 
       case slot1 === "a6" && slot2 === "a6" && slot3 === "a6":
         result = "х40 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 40));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 40));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 40)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 40));
         if (audio) win.play();
         break;
 
       case slot1 === "a7" && slot2 === "a7" && slot3 === "a7":
         result = "х60 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 60));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 60));
+        await apiService.updateBalance(
+          id,
+          Math.trunc(balance - bet + bet * 60)
+        );
+        setBalance(Math.trunc(balance - bet + bet * 60));
         if (audio) win.play();
         break;
 
       case slot1 === "a1" && slot2 === "a1" && slot3 === "a1":
         result = "х100 ДЖЕКПОТ!";
-        setBalance(balance + bet * 100);
-        await apiService.updateBalance(id, balance + bet * 100);
+        await apiService.updateBalance(id, balance - bet + bet * 100);
+        setBalance(balance - bet + bet * 100);
         if (audio) win.play();
         break;
 
       case slot1 === "a2" && slot2 === "a2":
       case slot3 === "a2" && slot2 === "a2":
       case slot1 === "a2" && slot3 === "a2":
-        result = "х5 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 5));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 5));
+        result = "х3 ПОБЕДА!";
+        await apiService.updateBalance(id, Math.trunc(balance - bet + bet * 3));
+        setBalance(Math.trunc(balance - bet + bet * 3));
         if (audio) win.play();
         break;
 
@@ -216,8 +236,9 @@ const SlotPage: React.FC = () => {
       case slot2 === "a2":
       case slot3 === "a2":
         result = "х0.5 ПОБЕДА!";
-        setBalance(Math.floor(balance + bet * 0.5));
-        await apiService.updateBalance(id, Math.floor(balance + bet * 0.5));
+        console.log("БАЛАНС ПОСЛЕ СТАВКИ", balance - bet);
+        await apiService.updateBalance(id, Math.trunc(balance - bet + bet / 2));
+        setBalance(Math.trunc(balance - bet + bet / 2));
         if (audio) win.play();
         break;
 
@@ -302,7 +323,7 @@ const SlotPage: React.FC = () => {
                       <img src={cherries} alt="Вишня"></img>
                     </div>
                   </td>
-                  <td>х5</td>
+                  <td>х3</td>
                 </tr>
                 <tr>
                   <td className="combination">
