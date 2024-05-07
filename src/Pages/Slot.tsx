@@ -232,16 +232,6 @@ const SlotPage: React.FC = () => {
         if (audio) win.play();
         break;
 
-      case slot1 === "a2":
-      case slot2 === "a2":
-      case slot3 === "a2":
-        result = "х0.5 ПОБЕДА!";
-        console.log("БАЛАНС ПОСЛЕ СТАВКИ", balance - bet);
-        await apiService.updateBalance(id, Math.trunc(balance - bet + bet / 2));
-        setBalance(Math.trunc(balance - bet + bet / 2));
-        if (audio) win.play();
-        break;
-
       default:
         await apiService.updateBalance(id, balance - bet);
         result = "НЕ ПОВЕЗЛО(";
@@ -275,7 +265,12 @@ const SlotPage: React.FC = () => {
 
   const multiplyBet = () => {
     if (bet * 2 <= balance) {
-      setBet(bet * 2);
+      const newBet = bet * 2;
+      if (newBet > 1000000) {
+        setBet(1000000);
+      } else {
+        setBet(newBet);
+      }
     }
   };
 
@@ -315,15 +310,6 @@ const SlotPage: React.FC = () => {
                     <img src={cherries} alt="Вишня"></img>
                   </td>
                   <td>х0.5</td>
-                </tr>
-                <tr>
-                  <td className="combination">
-                    <div className="combination">
-                      <img src={cherries} alt="Вишня"></img>
-                      <img src={cherries} alt="Вишня"></img>
-                    </div>
-                  </td>
-                  <td>х3</td>
                 </tr>
                 <tr>
                   <td className="combination">
