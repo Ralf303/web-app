@@ -308,8 +308,9 @@ const SlotPage: React.FC = () => {
                 <tr>
                   <td className="combination">
                     <img src={cherries} alt="Вишня"></img>
+                    <img src={cherries} alt="Вишня"></img>
                   </td>
-                  <td>х0.5</td>
+                  <td>х3</td>
                 </tr>
                 <tr>
                   <td className="combination">
