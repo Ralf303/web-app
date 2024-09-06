@@ -3,22 +3,23 @@ import useTelegram from "../hooks/telegram-hook";
 import "../styles/home.css";
 import Img from "components/image/img-component";
 import UserApi from "../services/api-service";
+import { separateNumber } from "utils/helpers";
 
 function Home() {
   const tg = useTelegram();
   const { first_name, id } = tg.user;
-  const [balance, setBalance] = useState<number>(0);
+  const [balance, setBalance] = useState<string>("0");
   const [gems, setGems] = useState<number>(0);
   const [keys, setKeys] = useState<number>(0);
 
   useEffect(() => {
     const fetchBalance = async () => {
       const { Balance, Gems, Chests } = await UserApi.get(id);
-      setBalance(Balance);
+
+      setBalance(separateNumber(Balance));
       setGems(Gems);
       setKeys(Chests);
     };
-
     fetchBalance();
   }, [id]);
 
@@ -31,7 +32,7 @@ function Home() {
       />
       <ul className="home-ul">
         <li className="home-li">{first_name}</li>
-        <li className="home-li">{balance} старок🌿</li>
+        <li className="home-li">{balance} мефа🌿</li>
         <li className="home-li">{gems} гемов💎</li>
         <li className="home-li">{keys} ключей🔑</li>
       </ul>

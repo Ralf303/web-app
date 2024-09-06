@@ -29,6 +29,7 @@ import joker from "../res/tiles/joker.png";
 import seven from "../res/tiles/seven.png";
 import useTelegram from "hooks/telegram-hook";
 import apiService from "../services/api-service";
+import { separateNumber } from "utils/helpers";
 
 const spin = new Array(7).fill(new Audio(spinAudio));
 const coin = new Audio(coinAudio);
@@ -280,7 +281,7 @@ const SlotPage: React.FC = () => {
         <Slots />
         <Status status={status} />
         <Balance
-          balance={balance}
+          balance={separateNumber(balance)}
           bet={bet}
           decreaseBalance={decreaseBalance}
           placeBet={placeBet}

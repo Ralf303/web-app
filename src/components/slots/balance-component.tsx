@@ -1,7 +1,7 @@
 import React from "react";
 
 interface BalanceProps {
-  balance: number;
+  balance: string;
   bet: number;
   decreaseBalance: () => void;
   placeBet: () => void;
