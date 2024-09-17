@@ -27,7 +27,7 @@ function Home() {
     <div>
       <h2 className="home-h2">Добро пожаловать, {first_name}!</h2>
       <Img
-        src={`https://mefadmin.ru:88/getPhoto?userId=${id}`}
+        src={`https://pablohouse.su:88/getPhoto?userId=${id}`}
         alt="твой пабло"
       />
       <ul className="home-ul">
