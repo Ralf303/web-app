@@ -1,7 +1,6 @@
 import React from "react";
 import "./styles/App.css";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import ClickerPage from "./Pages/Clicker";
 import NavBar from "./components/tabs/tab-component";
 import ErrorPage from "./Pages/Err";
 import Home from "./Pages/Home";
