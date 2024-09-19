@@ -4,7 +4,7 @@ class UserApi {
   async get(id: string) {
     try {
       const response = await axios.get(
-        `https://mefadmin.ru:8080/user/get/${id}`
+        `https://pablohouse.su:8080/user/get/${id}`
       );
       return response.data;
     } catch (error) {
@@ -15,7 +15,7 @@ class UserApi {
   async updateBalance(id: string, balance: number) {
     try {
       const response = await axios.put(
-        `https://mefadmin.ru:8080/user/updateBalance/${id}`,
+        `https://pablohouse.su:8080/user/updateBalance/${id}`,
         {
           balance: balance,
         }
@@ -29,7 +29,7 @@ class UserApi {
   async updateGems(id: string, gems: number) {
     try {
       const response = await axios.put(
-        `https://mefadmin.ru:8080/user/updateGems/${id}`,
+        `https://pablohouse.su:8080/user/updateGems/${id}`,
         {
           gems: gems,
         }
@@ -43,7 +43,7 @@ class UserApi {
   async updateKeys(id: string, keys: number) {
     try {
       const response = await axios.put(
-        `https://mefadmin.ru:8080/user/updateKeys/${id}`,
+        `https://pablohouse.su:8080/user/updateKeys/${id}`,
         {
           keys: keys,
         }
