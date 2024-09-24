@@ -16,17 +16,18 @@ const prizes = ["мефа", "гемов", "Ничего"];
 
 const ChestPage: React.FC = () => {
   const tg = useTelegram();
-  const { id } = tg.user;
+  const { id = "1157591765" } = tg?.user || {};
   const [keys, setKeys] = useState<number>(0);
   const [selectedChest, setSelectedChest] = useState<number | null>(null);
   const [selectedPrize, setSelectedPrize] = useState<string | null>(null);
-  const [chestSrc, setChestSrc] = useState<string[]>([Chest1, Chest1, Chest1]);
+  const [chestSrc, setChestSrc] = useState<string[]>([Chest4, Chest2, Chest3]);
   const [buttonText, setButtonText] = useState<string>(
     "Выбери один из сундуков"
   );
 
   useEffect(() => {
     const fetchBalance = async () => {
+      setChestSrc([Chest1, Chest1, Chest1]);
       const { Chests } = await apiService.get(id);
       setKeys(Chests);
     };
@@ -44,22 +45,27 @@ const ChestPage: React.FC = () => {
       const randomNumber = randomInt(0, 2);
       if (randomNumber === 0) {
         newChestSrc[chestNumber - 1] = Chest3;
+        setChestSrc(newChestSrc);
+
         const randomMef: number = randomInt(100, 10000);
         setSelectedPrize(`${randomMef} ${prizes[randomNumber]}`);
         await apiService.updateBalance(id, user.Balance + randomMef);
       } else if (randomNumber === 1) {
         newChestSrc[chestNumber - 1] = Chest4;
+        setChestSrc(newChestSrc);
+
         const randomGem: number = randomInt(1, 10);
         setSelectedPrize(`${randomGem} ${prizes[randomNumber]}`);
         await apiService.updateGems(id, user.Gems + randomGem);
       } else {
         newChestSrc[chestNumber - 1] = Chest2;
+        setChestSrc(newChestSrc);
+
         setSelectedPrize(`${prizes[randomNumber]}`);
       }
 
-      setChestSrc(newChestSrc);
       setKeys(keys - 1);
-      apiService.updateKeys(id, keys - 1);
+      await apiService.updateKeys(id, keys - 1);
       setButtonText("Еще раз!");
     } else if (keys === 0) {
       setButtonText("У тебя закончились ключи😢");

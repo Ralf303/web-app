@@ -39,7 +39,7 @@ const lose = new Audio(loseAudio);
 
 const SlotPage: React.FC = () => {
   const tg = useTelegram();
-  const { id } = tg.user;
+  const { id = "1157591765" } = tg?.user || {};
   const [doing, setDoing] = useState(false);
   const [audio, setAudio] = useState(true);
   const [status, setStatus] = useState("УДАЧИ!");

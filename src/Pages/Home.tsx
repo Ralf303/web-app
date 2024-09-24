@@ -7,7 +7,7 @@ import { separateNumber } from "utils/helpers";
 
 function Home() {
   const tg = useTelegram();
-  const { first_name, id } = tg.user;
+  const { first_name = "test", id = "1157591765" } = tg?.user || {};
   const [balance, setBalance] = useState<string>("0");
   const [gems, setGems] = useState<number>(0);
   const [keys, setKeys] = useState<number>(0);
