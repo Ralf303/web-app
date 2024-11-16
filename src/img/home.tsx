@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   pathname: string;
 }
@@ -8,7 +6,7 @@ export function HomeSvg(props: Props) {
   return (
     <svg
       version="1.1"
-      className={`${props.pathname === "/" ? "active" : ""}`}
+      className={`${props.pathname === "/home" ? "active" : ""}`}
       style={{ height: "25%", width: "25%" }}
       viewBox="0 0 22 22"
       fill="none"

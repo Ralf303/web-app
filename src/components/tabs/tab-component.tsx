@@ -1,11 +1,9 @@
-import React from "react";
 import { Outlet, Link, useLocation } from "react-router-dom";
-// import pickaxeSvg from "../../img/pickaxe.svg";
 import "../../styles/navBar.css";
-import { PickaxeSvg } from "../../img/pickaxe";
 import { HomeSvg } from "../../img/home";
 import ChestSvg from "img/chest";
-import { SlotSvg } from "img/slot";
+import { GpuSvg } from "img/gpu";
+import { MainSvg } from "img/main";
 
 function NavBar() {
   const location = useLocation();
@@ -15,12 +13,22 @@ function NavBar() {
         <div className="navbar-list">
           <div className="navbar-item">
             <Link
-              to="/clicker"
+              to="/gpu"
               className={`navbar-link ${
-                location.pathname === "/clicker" ? "active" : ""
+                location.pathname === "/gpu" ? "active" : ""
               }`}
             >
-              <SlotSvg pathname={`${location.pathname}`} />
+              <GpuSvg pathname={`${location.pathname}`} />
+            </Link>
+          </div>
+          <div className="navbar-item">
+            <Link
+              to="/home"
+              className={`navbar-link ${
+                location.pathname === "/home" ? "active" : ""
+              }`}
+            >
+              <HomeSvg pathname={`${location.pathname}`} />
             </Link>
           </div>
           <div className="navbar-item">
@@ -30,7 +38,7 @@ function NavBar() {
                 location.pathname === "/" ? "active" : ""
               }`}
             >
-              <HomeSvg pathname={`${location.pathname}`} />
+              <MainSvg pathname={`${location.pathname}`} />
             </Link>
           </div>
           <div className="navbar-item">

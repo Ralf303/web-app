@@ -1,5 +1,3 @@
-import React from "react";
-
 interface Props {
   pathname: string;
 }
@@ -8,7 +6,7 @@ export function SlotSvg(props: Props) {
   return (
     <svg
       version="1.1"
-      className={`${props.pathname === "/clicker" ? "active" : ""}`}
+      className={`${props.pathname === "/slot" ? "active" : ""}`}
       style={{ height: "25%", width: "25%" }}
       viewBox="0 0 32 32"
     >

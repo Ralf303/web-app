@@ -1,6 +1,25 @@
 import axios from "axios";
 
 class UserApi {
+  async buyHouse(homeId: number, userId: string, price: number) {
+    const response = await axios.post("https://pablohouse.su:88/buyHome", {
+      homeId: homeId,
+      userId: userId,
+      price: price,
+    });
+    //@ts-ignore
+    return response.data.message;
+  }
+
+  async getHouses() {
+    try {
+      const response = await axios.get("https://pablohouse.su:88/getHomes");
+      return response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async get(id: string) {
     try {
       const response = await axios.get(
