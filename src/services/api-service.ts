@@ -20,6 +20,17 @@ class UserApi {
     }
   }
 
+  async getHouseById(homeId: number) {
+    try {
+      const response = await axios.get(
+        `https://pablohouse.su:88/getHomes?id=${homeId}`
+      );
+      return response.data;
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   async get(id: string) {
     try {
       const response = await axios.get(

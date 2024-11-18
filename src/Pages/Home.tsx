@@ -6,6 +6,7 @@ import UserApi from "../services/api-service";
 import HomeItem from "../components/home/home";
 import Modal from "../components/modal/modal";
 import StatusModal from "../components/modal/dialog";
+import axios from "axios";
 
 function Home() {
   const tg = useTelegram();
@@ -16,12 +17,34 @@ function Home() {
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
-  const fetchHomes = async () => {
-    const homesData = await UserApi.getHouses();
-    setHomes(homesData);
+  const fetchHomeById = async (homeId: number) => {
+    try {
+      const response = await UserApi.getHouseById(homeId);
+      if (response) {
+        //@ts-ignore
+        setHomes((prevHomes) => {
+          //@ts-ignore
+          if (!prevHomes.some((home) => home.id === response.id)) {
+            return [...prevHomes, response];
+          }
+          return prevHomes;
+        });
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
+
+  const fetchAllHomes = async () => {
+    const { data } = await axios.get("https://pablohouse.su:88/homeCount");
+
+    for (let i = 1; i <= data; i++) {
+      await fetchHomeById(i);
+    }
+  };
+
   useEffect(() => {
-    fetchHomes();
+    fetchAllHomes();
   }, [id]);
 
   const handleBuyClick = (home: any) => {
@@ -40,7 +63,8 @@ function Home() {
       switch (res) {
         case "success":
           setStatusMessage("Поздравляем с успешной покупкой дома!");
-          await fetchHomes(); // Обновить список домов после успешной покупки
+          setHomes([]); // Сбрасываем список домов перед перезагрузкой
+          await fetchAllHomes(); // Обновить список домов после успешной покупки
           break;
         case "money":
           setStatusMessage("У тебя не хватает денег на покупку этого дома.");
