@@ -8,11 +8,12 @@ import ChestPage from "Pages/Chests";
 import SlotPage from "Pages/Slot";
 import Home from "Pages/Home";
 import Gpu from "Pages/Gpu";
+import Roulette from "Pages/Roulette";
 
 function App() {
   return (
     <BrowserRouter>
-      <Snowfall snowflakeCount={35} speed={[0.1, 0.3]} wind={[-1, 1.5]} />
+      {/* <Snowfall snowflakeCount={35} speed={[0.1, 0.3]} wind={[-1, 1.5]} /> */}
       <div className="app-container">
         <Routes>
           <Route path="/" element={<Main />} />

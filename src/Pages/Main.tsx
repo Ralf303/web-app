@@ -32,7 +32,7 @@ function Main() {
       />
       <ul className="home-ul">
         <li className="home-li">{first_name}</li>
-        <li className="home-li">{balance} мефа🌿</li>
+        <li className="home-li">{balance} стар🌟</li>
         <li className="home-li">{gems} гемов💎</li>
         <li className="home-li">{keys} ключей🔑</li>
       </ul>

@@ -25,7 +25,7 @@ const HomeItem: React.FC<HomeItemProps> = ({
       <img src={imgSrc} className="home__img" alt={title} />
       {isAvailable ? (
         <button className="home__button__available" onClick={onBuyClick}>
-          Купить за {separateNumber(price!)} мефа
+          Купить за {separateNumber(price!)} стар
         </button>
       ) : (
         <button className="home__button" disabled>

@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({
       <div className="modal__content">
         <h2 className="modal__head">Подтверждение покупки</h2>
         <p>
-          Ты уверен, что хочешь купить {title} за {separateNumber(price)} мефа?
+          Ты уверен, что хочешь купить {title} за {separateNumber(price)} стар?
         </p>
         <button className="modal__button" onClick={onClose}>
           Отмена

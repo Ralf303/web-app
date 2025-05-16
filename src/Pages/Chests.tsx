@@ -12,7 +12,7 @@ import Chest4 from "../img/Chest_4.png";
 import apiService from "services/api-service";
 import useTelegram from "hooks/telegram-hook";
 
-const prizes = ["мефа", "гемов", "Ничего"];
+const prizes = ["стар", "гемов", "Ничего"];
 
 const ChestPage: React.FC = () => {
   const tg = useTelegram();
